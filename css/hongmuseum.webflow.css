@@ -2687,6 +2687,14 @@ body {
   margin-left: 5px;
   margin-right: 5px;
   display: inline-block;
+  position: relative;
+}
+
+/* Keep dropdown visible on hover for better UX */
+.nav-dropdown:hover .nav-dropdown-list--ex,
+.nav-dropdown---rp:hover .nav-dropdown-list---rp,
+.w-dropdown:hover .w-dropdown-list {
+  display: block;
 }
 
 .nav-dropdown-toggle {
@@ -2715,11 +2723,42 @@ body {
 
 .nav-dropdown-icon {
   margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate chevron when dropdown is open */
+.w-dropdown.w--open .nav-dropdown-icon,
+.w-dropdown.w--open .w-icon-dropdown-toggle,
+.w-dropdown-toggle.w--open .nav-dropdown-icon,
+.w-dropdown-toggle.w--open .w-icon-dropdown-toggle,
+.nav-dropdown-toggle.w--open .nav-dropdown-icon,
+.nav-dropdown-toggle.w--open .w-icon-dropdown-toggle {
+  transform: rotate(180deg);
+}
+
+/* Also target the webflow default dropdown toggle icon */
+.w-dropdown .w-icon-dropdown-toggle,
+.w-dropdown-toggle .w-icon-dropdown-toggle,
+.nav-dropdown-toggle .w-icon-dropdown-toggle {
+  transition: transform 0.3s ease;
 }
 
 .nav-dropdown-list--ex {
   background-color: #fff;
   border-radius: 12px;
+  top: 100%;
+  padding-top: 0;
+}
+
+/* Bridge the gap between toggle and dropdown to prevent hover loss */
+.nav-dropdown-list--ex::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: transparent;
 }
 
 .nav-dropdown-list--ex.w--open {
@@ -3088,7 +3127,7 @@ body {
 
 .bold-text-14 {
   font-weight: 700;
-  font-family: 'Droid Sans', sans-serif;
+  font-family: Biotif, sans-serif;
 }
 
 .list-item, .list-item-2, .np {
@@ -3164,6 +3203,19 @@ body {
 .nav-dropdown-list---rp {
   background-color: #fff;
   border-radius: 12px;
+  top: 100%;
+  padding-top: 0;
+}
+
+/* Bridge the gap between toggle and dropdown to prevent hover loss */
+.nav-dropdown-list---rp::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: transparent;
 }
 
 .nav-dropdown-list---rp.w--open {
@@ -3179,7 +3231,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding-right: 5px;
-  font-family: Droid Sans, sans-serif;
+  font-family: Biotif, sans-serif;
   display: none;
   position: absolute;
 }
@@ -3444,7 +3496,7 @@ body {
   }
 
   .soc-link {
-    font-family: Droid Sans, sans-serif;
+    font-family: Biotif, sans-serif;
     font-size: 16px;
     transition: none;
   }
@@ -5567,7 +5619,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
-    font-family: Droid Sans, sans-serif;
+    font-family: Biotif, sans-serif;
   }
 
   .nav-dropdown {
