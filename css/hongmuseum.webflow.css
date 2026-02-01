@@ -414,7 +414,7 @@ body {
   cursor: none;
   mix-blend-mode: normal;
   background-color: #0000;
-  background-image: url('../images/pointinghand.svg');
+  background-image: url('../images/common/pointinghand.svg');
   background-position: 0 0;
   border-radius: 50%;
   width: 3em;
@@ -425,7 +425,7 @@ body {
 
 .cursor.launch {
   background-color: #0000;
-  background-image: url('../images/pointinghand.svg');
+  background-image: url('../images/common/pointinghand.svg');
   background-position: 0 0;
   background-size: auto;
   width: 3em;
@@ -435,7 +435,7 @@ body {
 
 .cursor.scroll-indicator {
   background-color: #0000;
-  background-image: url('../images/cursor.svg');
+  background-image: url('../images/common/cursor.svg');
   background-position: 0 0;
   background-size: auto;
   width: 3em;
@@ -3146,7 +3146,7 @@ body {
 }
 
 .image-30 {
-  background-image: url('../images/MAMA封面（视频封面可用）.jpg');
+  background-image: url('../images/mama/MAMA封面（视频封面可用）.jpg');
   background-position: 50%;
   background-size: auto;
   width: 100%;
