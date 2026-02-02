@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Component Example - Hong Museum</title>
+  
+  <!-- Webflow CSS -->
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/hongmuseum.webflow.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <!-- 
+    =====================================================
+    Navbar Loader Usage Examples
+    导航栏加载器使用示例
+    =====================================================
+    
+    There are 3 ways to use the NavbarLoader:
+  -->
+
+  <!-- 
+    Option 1: Auto-detect (Recommended)
+    The simplest way - automatically detects language from filename
+    
+    选项1：自动检测（推荐）
+    最简单的方式 - 自动从文件名检测语言
+  -->
+  
+  <!-- 
+    Option 2: Using a container element
+    Place a container where you want the navbar to appear
+    
+    选项2：使用容器元素
+    在需要显示导航栏的位置放置容器
+  -->
+  <!-- <div id="navbar-container"></div> -->
+  
+  <!-- 
+    Option 3: Manual configuration with custom language switch URL
+    
+    选项3：手动配置并指定自定义语言切换URL
+  -->
+
+  <!-- Main Content -->
+  <main style="padding-top: 100px; padding: 120px 20px 40px;">
+    <h1>Navbar Loader Example</h1>
+    <p>This page demonstrates how to use the reusable navbar component.</p>
+    
+    <h2>Usage Instructions / 使用说明</h2>
+    
+    <h3>Method 1: Auto-detect (Recommended)</h3>
+    <pre><code>&lt;script src="js/navbar-loader.js?v=20260202d"&gt;&lt;/script&gt;
+&lt;script&gt;
+  // Auto-detects language from filename and sets up language switch
+  autoDetectAndInitNavbar();
+&lt;/script&gt;</code></pre>
+    
+    <h3>Method 2: Manual Configuration</h3>
+    <pre><code>&lt;script src="js/navbar-loader.js?v=20260202d"&gt;&lt;/script&gt;
+&lt;script&gt;
+  NavbarLoader.init({
+    lang: 'en',  // 'en' or 'cn'
+    languageSwitchUrl: 'index.html'  // URL for language toggle
+  });
+&lt;/script&gt;</code></pre>
+    
+    <h3>Method 3: With Container</h3>
+    <pre><code>&lt;div id="navbar-container"&gt;&lt;/div&gt;
+&lt;script src="js/navbar-loader.js?v=20260202d"&gt;&lt;/script&gt;
+&lt;script&gt;
+  NavbarLoader.init({ lang: 'cn' });
+&lt;/script&gt;</code></pre>
+
+    <h3>Dynamically Update Content</h3>
+    <pre><code>// Add a new exhibition
+NavbarLoader.updateExhibitions('en', [
+  { href: 'new-exhibition-en.html', label: 'New Exhibition', isOngoing: true },
+  { href: 'digestive-ethics-en.html', label: 'Digestive Ethics' },
+  // ... more exhibitions
+]);
+
+// Then re-initialize
+NavbarLoader.init({ lang: 'en' });</code></pre>
+  </main>
+
+  <!-- Webflow JS -->
+  <script src="js/webflow.js" type="text/javascript"></script>
+  
+  <!-- Navbar Loader -->
+  <script src="js/navbar-loader.js?v=20260202d"></script>
+  <script>
+    // Using auto-detect method
+    autoDetectAndInitNavbar();
+  </script>
+</body>
+</html>

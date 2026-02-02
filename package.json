@@ -1,10 +1,15 @@
 {
-  "name": "workspace",
+  "name": "hongmuseum-webflow",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "python3 -m http.server 5000",
+    "build:ts": "tsc",
+    "watch:ts": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
   },
   "repository": {
     "type": "git",

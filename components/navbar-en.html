@@ -1,0 +1,98 @@
+<!--
+  =====================================================
+  Hong Museum - English Navbar Component
+  弘美术馆 - 英文导航栏组件
+  =====================================================
+  
+  How to use:
+  1. Copy the <nav> code block below into your page
+  2. Place it right after the <body> tag
+  3. Make sure the CSS file is linked: css/hongmuseum.webflow.css
+  
+  Notes:
+  - Update exhibition links in the "Exhibitions" dropdown
+  - Update residency links in the "Residency Program" dropdown
+  - Language switch links to Chinese homepage index.html
+  =====================================================
+-->
+
+<!-- Navbar Start -->
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-center-container shadow-three w-nav">
+  <div class="container-13">
+    <!-- Logo -->
+    <a href="home-en.html" class="navbar-brand-three w-nav-brand">
+      <img src="images/common/NEW-hong-museum-logo.png" loading="lazy" 
+           sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 2180px) 100vw, 2180px" 
+           srcset="images/NEW-hong-museum-logo-p-500.png 500w, images/NEW-hong-museum-logo-p-800.png 800w, images/NEW-hong-museum-logo-p-1080.png 1080w, images/common/NEW-hong-museum-logo.png 2180w" 
+           alt="Hong Museum" class="image-6">
+    </a>
+    
+    <div class="navbar-wrapper-three">
+      <nav role="navigation" class="nav-menu-wrapper-three w-nav-menu">
+        <div class="nav-menu-three">
+          <ul role="list" class="nav-menu-block w-list-unstyled">
+            
+            <!-- Guide -->
+            <li class="list-item">
+              <a href="guide-en.html" class="nav-link">Guide</a>
+            </li>
+            
+            <!-- About -->
+            <li class="list-item-2">
+              <a href="about-en.html" class="nav-link">About</a>
+            </li>
+            
+            <!-- Exhibitions Dropdown -->
+            <li class="exhibition">
+              <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                  <div class="text-block-2">Exhibitions</div>
+                </div>
+                <nav class="nav-dropdown-list--ex shadow-three mobile-shadow-hide w-dropdown-list">
+                  <!-- Current exhibition - add "(Ongoing)" label -->
+                  <a href="digestive-ethics-en.html" class="nav-dropdown-link w-dropdown-link">Digestive Ethics (Ongoing)</a>
+                  <!-- Past exhibitions -->
+                  <a href="mama-en.html" class="nav-dropdown-link w-dropdown-link">MAMA</a>
+                  <a href="the-currents-we-carry-en.html" class="nav-dropdown-link w-dropdown-link">The Currents We Carry</a>
+                  <a href="eleven-kinds-of-beds-en.html" class="nav-dropdown-link w-dropdown-link">Eleven Kinds of Beds</a>
+                  <a href="the-forebears-are-born-en.html" class="nav-dropdown-link w-dropdown-link">The Forebears are Born</a>
+                </nav>
+              </div>
+            </li>
+            
+            <!-- Residency Program Dropdown -->
+            <li class="rp">
+              <div data-hover="false" data-delay="0" class="nav-dropdown---rp w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                  <div class="text-block-2">Residency Program</div>
+                </div>
+                <nav class="nav-dropdown-list---rp shadow-three mobile-shadow-hide w-dropdown-list">
+                  <a href="situated-resonance-en.html" class="nav-dropdown-link w-dropdown-link">Situated Resonance</a>
+                  <a href="the-plan-of-going-home-residency-program.html" class="nav-dropdown-link w-dropdown-link">Zou Gui Project</a>
+                </nav>
+              </div>
+            </li>
+            
+            <!-- Language Switcher -->
+            <li class="language">
+              <a href="index.html" class="language-button" aria-label="切换到中文">
+                <span class="lang-active">En</span>
+                <span class="lang-divider">/</span>
+                <span class="lang-inactive">中文</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <div class="menu-button w-nav-button">
+        <div class="icon-4 w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Navbar End -->

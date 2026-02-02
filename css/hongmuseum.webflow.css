@@ -166,9 +166,125 @@
   display: flex;
 }
 
+/* ===== NAVBAR UX IMPROVEMENTS ===== */
+
+/* Better mobile hamburger menu button */
+.menu-button.w-nav-button {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button.w-nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.menu-button.w-nav-button.w--open {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Better hamburger icon */
+.icon-4.w-icon-nav-menu {
+  font-size: 24px;
+  color: #1a1b1f;
+}
+
+/* Hide hamburger menu on desktop when nav is visible */
+.menu-button.w-nav-button {
+  display: none !important;
+}
+
+/* Language button styling improvements */
+.language-button {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-family: Biotif, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  color: #666;
+  transition: all 0.2s ease;
+  height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+}
+
+.language-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #000;
+}
+
+/* Language switcher active/inactive states */
+.lang-active {
+  color: #1a1b1f;
+  font-weight: 600;
+}
+
+.lang-inactive {
+  color: #999;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.language-button:hover .lang-inactive {
+  color: #666;
+}
+
+.lang-divider {
+  color: #ccc;
+  margin: 0 2px;
+}
+
+/* Legacy support */
+.language-button .bold-text-12 {
+  color: #1a1b1f;
+  font-weight: 600;
+}
+
+.language-button .bold-text-14 {
+  color: #999;
+  font-weight: 400;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1a1b1f;
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* ===== END NAVBAR UX IMPROVEMENTS ===== */
+
 @media screen and (max-width: 991px) {
   .w-layout-blockcontainer {
     max-width: 728px;
+  }
+  
+  /* Show hamburger menu on tablet and below */
+  .menu-button.w-nav-button {
+    display: flex !important;
+  }
+  
+  /* Better touch targets on tablet */
+  .nav-link,
+  .nav-dropdown-toggle,
+  .nav-dropdown-link {
+    min-height: 48px;
   }
   
   /* Hide exhibition and residency dropdowns on tablet screens for both Chinese and English, but allow them to show when opened */
@@ -1654,11 +1770,13 @@ body {
   font-size: 32px;
   font-weight: 600;
   line-height: 40px;
+  scroll-margin-top: 100px;
 }
 
 .h2_sub.cn {
   margin-top: 40px;
   font-family: Droid Serif, serif;
+  scroll-margin-top: 100px;
 }
 
 .hero-without-image {
@@ -2650,29 +2768,38 @@ body {
   align-items: center;
   margin-bottom: 0;
   display: flex;
+  gap: 0;
+  height: 44px;
 }
 
 .nav-link {
   color: #1a1b1f;
   letter-spacing: .25px;
-  height: 30px;
-  margin-left: 5px;
-  margin-right: 5px;
+  height: 44px;
+  margin-left: 2px;
+  margin-right: 2px;
   font-family: Biotif, sans-serif;
-  padding: 5px 10px;
-  font-size: 14px;
-  line-height: 20px;
+  padding: 0 14px;
+  font-size: 15px;
+  line-height: 44px;
   text-decoration: none;
   display: flex;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  color: #666;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.04);
   text-decoration: none;
 }
 
-.nav-link {
-  transition: color 0.2s ease, text-decoration 0.2s ease;
+.nav-link:active {
+  background-color: rgba(0, 0, 0, 0.08);
+  transform: scale(0.98);
 }
 
 .nav-link:focus-visible, .nav-link[data-wf-focus-visible] {
@@ -2684,34 +2811,52 @@ body {
 
 .nav-dropdown {
   flex-flow: row;
-  margin-left: 5px;
-  margin-right: 5px;
-  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  height: 44px;
   position: relative;
 }
 
-/* Keep dropdown visible on hover for better UX */
+/* Unified dropdown hover behavior - show with animation */
 .nav-dropdown:hover .nav-dropdown-list--ex,
-.nav-dropdown---rp:hover .nav-dropdown-list---rp,
-.w-dropdown:hover .w-dropdown-list {
-  display: block;
+.nav-dropdown---rp:hover .nav-dropdown-list---rp {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Also support click-opened state */
+.nav-dropdown-list--ex.w--open,
+.nav-dropdown-list---rp.w--open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .nav-dropdown-toggle {
   letter-spacing: .25px;
-  height: 30px;
-  padding: 5px 30px 5px 10px;
-  font-family: Chapter, sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-}
-
-.nav-dropdown-toggle {
-  transition: color 0.2s ease;
+  height: 44px;
+  padding: 0 32px 0 14px;
+  font-family: Biotif, sans-serif;
+  font-size: 15px;
+  line-height: 44px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .nav-dropdown-toggle:hover {
-  color: #666;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.nav-dropdown-toggle:active {
+  background-color: rgba(0, 0, 0, 0.08);
 }
 
 .nav-dropdown-toggle:focus-visible, .nav-dropdown-toggle[data-wf-focus-visible] {
@@ -2723,7 +2868,9 @@ body {
 
 .nav-dropdown-icon {
   margin-right: 10px;
-  transition: transform 0.3s ease;
+  margin-left: 4px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 12px;
 }
 
 /* Rotate chevron when dropdown is open */
@@ -2746,24 +2893,25 @@ body {
 .nav-dropdown-list--ex {
   background-color: #fff;
   border-radius: 12px;
-  top: 100%;
-  padding-top: 0;
+  top: calc(100% + 8px);
+  padding: 8px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  visibility: hidden;
+  min-width: 200px;
 }
 
 /* Bridge the gap between toggle and dropdown to prevent hover loss */
 .nav-dropdown-list--ex::before {
   content: '';
   position: absolute;
-  top: -15px;
+  top: -16px;
   left: 0;
   right: 0;
-  height: 15px;
+  height: 16px;
   background: transparent;
-}
-
-.nav-dropdown-list--ex.w--open {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .nav-dropdown-list--ex.shadow-three.mobile-shadow-hide {
@@ -2792,26 +2940,31 @@ body {
 
 .nav-dropdown-link {
   -webkit-text-fill-color: inherit;
-  background-color: #fff;
-  background-image: linear-gradient(#fff, #fff);
+  background-color: transparent;
+  background-image: none;
   background-clip: padding-box;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px 16px;
+  margin: 2px 8px;
   font-family: Biotif, sans-serif;
   font-size: 14px;
+  line-height: 1.4;
   display: flex;
   text-align: left;
   justify-content: flex-start;
-}
-
-.nav-dropdown-link {
-  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 8px;
+  color: #333;
+  white-space: nowrap;
+  transition: all 0.15s ease;
 }
 
 .nav-dropdown-link:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(0, 0, 0, 0.06);
   color: #000;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.nav-dropdown-link:active {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .nav-dropdown-link:focus-visible, .nav-dropdown-link[data-wf-focus-visible] {
@@ -2824,34 +2977,55 @@ body {
 .nav-dropdown-link.w--current {
   color: #000;
   overflow: visible;
-  font-weight: 700;
-  text-decoration: underline;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-dropdown-link.w--current::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background-color: #1a1b1f;
+  border-radius: 0 2px 2px 0;
 }
 
 .nav-dropdown-link.w--current:focus-visible, .nav-dropdown-link.w--current[data-wf-focus-visible] {
-  color: #6f6f6f;
+  color: #000;
 }
 
 .nav-link-accent {
-  color: #1a1b1f;
+  color: #666;
   letter-spacing: .25px;
-  margin-left: 5px;
-  margin-right: 20px;
-  padding: 5px 10px;
-  font-family: Chapter, sans-serif;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 0 14px;
+  font-family: Biotif, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 44px;
   text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  white-space: nowrap;
 }
 
 .nav-link-accent:hover {
-  color: #1a1b1fbf;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 
 .nav-link-accent.en {
-  font-family: Droid Serif, serif;
-  font-weight: 700;
+  font-family: Biotif, sans-serif;
+  font-weight: 500;
 }
 
 .button-primary-4 {
@@ -2881,7 +3055,8 @@ body {
 
 .text-block-2 {
   font-family: Biotif, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .navbar-logo-center-container-2 {
@@ -3131,7 +3306,15 @@ body {
 }
 
 .list-item, .list-item-2, .np {
-  height: 30px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.exhibition, .rp, .language {
+  height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .italic-text {
@@ -3203,24 +3386,25 @@ body {
 .nav-dropdown-list---rp {
   background-color: #fff;
   border-radius: 12px;
-  top: 100%;
-  padding-top: 0;
+  top: calc(100% + 8px);
+  padding: 8px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  visibility: hidden;
+  min-width: 180px;
 }
 
 /* Bridge the gap between toggle and dropdown to prevent hover loss */
 .nav-dropdown-list---rp::before {
   content: '';
   position: absolute;
-  top: -15px;
+  top: -16px;
   left: 0;
   right: 0;
-  height: 15px;
+  height: 16px;
   background: transparent;
-}
-
-.nav-dropdown-list---rp.w--open {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .nav-dropdown-list---rp.shadow-three.mobile-shadow-hide {
@@ -3250,9 +3434,12 @@ body {
 
 .nav-dropdown---rp {
   flex-flow: row;
-  margin-left: 5px;
-  margin-right: 5px;
-  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  position: relative;
 }
 
 .nav-dropdown---rp.shadow-three.mobile-shadow-hide {

@@ -1,0 +1,98 @@
+<!--
+  =====================================================
+  弘美术馆 - 中文导航栏组件
+  Hong Museum - Chinese Navbar Component
+  =====================================================
+  
+  使用说明 / How to use:
+  1. 复制下面的 <nav> 代码块到你的页面
+  2. 将它放在 <body> 标签后面
+  3. 确保 CSS 文件已链接: css/hongmuseum.webflow.css
+  
+  注意事项 / Notes:
+  - 更新展览列表时，修改 "展览" 下拉菜单中的链接
+  - 更新驻地项目时，修改 "驻地项目" 下拉菜单中的链接
+  - 语言切换链接指向英文首页 home-en.html
+  =====================================================
+-->
+
+<!-- 导航栏开始 / Navbar Start -->
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-center-container shadow-three w-nav">
+  <div class="container-13">
+    <!-- Logo -->
+    <a href="index.html" class="navbar-brand-three w-nav-brand">
+      <img src="images/common/NEW-hong-museum-logo.png" loading="lazy" 
+           sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 2180px) 100vw, 2180px" 
+           srcset="images/NEW-hong-museum-logo-p-500.png 500w, images/NEW-hong-museum-logo-p-800.png 800w, images/NEW-hong-museum-logo-p-1080.png 1080w, images/common/NEW-hong-museum-logo.png 2180w" 
+           alt="弘美术馆" class="image-6">
+    </a>
+    
+    <div class="navbar-wrapper-three">
+      <nav role="navigation" class="nav-menu-wrapper-three w-nav-menu">
+        <div class="nav-menu-three">
+          <ol role="list" class="nav-menu-block w-list-unstyled">
+            
+            <!-- 抵达 / Guide -->
+            <li class="list-item">
+              <a href="guide.html" class="nav-link">抵达</a>
+            </li>
+            
+            <!-- 关于 / About -->
+            <li class="list-item-2">
+              <a href="about.html" class="nav-link">关于</a>
+            </li>
+            
+            <!-- 展览下拉菜单 / Exhibitions Dropdown -->
+            <li class="exhibition">
+              <div data-hover="false" data-delay="0" class="nav-dropdown w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                  <div class="text-block-2">展览</div>
+                </div>
+                <nav class="nav-dropdown-list--ex shadow-three mobile-shadow-hide w-dropdown-list">
+                  <!-- 当前展览 - 添加 "(展览中)" 标签 -->
+                  <a href="digestive-ethics-cn.html" class="nav-dropdown-link w-dropdown-link">偏食 (展览中)</a>
+                  <!-- 往期展览 -->
+                  <a href="mama-cn.html" class="nav-dropdown-link w-dropdown-link">妈妈</a>
+                  <a href="the-currents-we-carry-cn.html" class="nav-dropdown-link w-dropdown-link">送流水</a>
+                  <a href="eleven-kinds-of-beds-cn.html" class="nav-dropdown-link w-dropdown-link">十一种床</a>
+                  <a href="the-forebears-are-born-cn.html" class="nav-dropdown-link w-dropdown-link">训练祖宗</a>
+                </nav>
+              </div>
+            </li>
+            
+            <!-- 驻地项目下拉菜单 / Residency Program Dropdown -->
+            <li class="rp">
+              <div data-hover="false" data-delay="0" class="nav-dropdown---rp w-dropdown">
+                <div class="nav-dropdown-toggle w-dropdown-toggle">
+                  <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
+                  <div class="text-block-2">驻地项目</div>
+                </div>
+                <nav class="nav-dropdown-list---rp shadow-three mobile-shadow-hide w-dropdown-list">
+                  <a href="situated-resonance-cn.html" class="nav-dropdown-link w-dropdown-link">在地回响</a>
+                  <a href="zou-gui-ji-hua.html" class="nav-dropdown-link w-dropdown-link">走归计划</a>
+                </nav>
+              </div>
+            </li>
+            
+            <!-- 语言切换 / Language Switcher -->
+            <li class="language">
+              <a href="home-en.html" class="language-button" aria-label="Switch to English">
+                <span class="lang-inactive">En</span>
+                <span class="lang-divider">/</span>
+                <span class="lang-active">中文</span>
+              </a>
+            </li>
+            
+          </ol>
+        </div>
+      </nav>
+      
+      <!-- 移动端菜单按钮 / Mobile Menu Button -->
+      <div class="menu-button w-nav-button">
+        <div class="icon-4 w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 导航栏结束 / Navbar End -->
